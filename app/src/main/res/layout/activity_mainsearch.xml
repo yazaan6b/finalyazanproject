@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F6F6"
+    android:id="@+id/main">
+
+    <!-- ======= Header ======= -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCF8F6F6"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#FFD45211" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search | بحث"
+            android:textSize="20sp"
+            android:textColor="#221610"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingEnd="40dp" />
+    </LinearLayout>
+
+    <!-- ======= Search Bar ======= -->
+    <LinearLayout
+        android:id="@+id/searchBar"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search by name or registration number | ابحث بالاسم أو رقم التسجيل"
+            android:textColor="#000"
+            android:textColorHint="#777"
+            android:background="@android:color/transparent"
+            android:padding="4dp"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <!-- ======= Filter Buttons ======= -->
+    <HorizontalScrollView
+        android:id="@+id/filterScroll"
+        android:layout_below="@id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="4dp">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_marginEnd="8dp"
+                android:text="Age | العمر"
+                android:textColor="#221610" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_marginEnd="8dp"
+                android:text="Breed | السلالة"
+                android:textColor="#221610" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:text="Location | الموقع"
+                android:textColor="#221610" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ======= Results Title ======= -->
+    <TextView
+        android:id="@+id/resultsTitle"
+        android:layout_below="@id/filterScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:text="Results | النتائج"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#221610" />
+
+    <!-- ======= Results List ======= -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerResults"
+        android:layout_below="@id/resultsTitle"
+        android:layout_above="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentBottom="false" />
+
+    <!-- ======= Bottom Navigation ======= -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCF8F6F6" />
+
+</RelativeLayout>

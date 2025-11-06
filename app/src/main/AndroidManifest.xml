@@ -12,7 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finalyazanproject">
         <activity
-            android:name=".MainActivity"
+            android:name=".Mainseting"
+            android:exported="false" />
+        <activity
+            android:name=".Maindetail"
+            android:exported="false" />
+        <activity
+            android:name=".Mainsearch"
+            android:exported="false" />
+        <activity
+            android:name=".Mainhorses"
+            android:exported="false" />
+        <activity
+            android:name=".Mainmenu"
+            android:exported="false" />
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+        <activity
+            android:name=".signin"
+            android:exported="false" />
+        <activity
+            android:name=".Mainsplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

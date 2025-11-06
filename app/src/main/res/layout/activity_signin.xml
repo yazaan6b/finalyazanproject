@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+
+    <!-- طبقة تغطية شفافة فوق الصورة -->
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA000000" />
+
+    <!-- شعار الحصان -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="80dp"
+        android:padding="18dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- العنوان الرئيسي -->
+    <TextView
+        android:id="@+id/tvtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- النص الفرعي -->
+    <TextView
+        android:id="@+id/tvsubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in to continue to Arabian Horses"
+        android:textColor="#E0E0E0"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- حقل البريد -->
+    <EditText
+        android:id="@+id/etemail"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:hint="you@example.com"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B3FFFFFF"
+        android:inputType="textEmailAddress"
+        android:drawablePadding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvsubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- حقل كلمة السر -->
+    <EditText
+        android:id="@+id/etpassword"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:hint="••••••••"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B3FFFFFF"
+        android:inputType="textPassword"
+        android:drawablePadding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/etemail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- زر تسجيل الدخول -->
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Sign In / تسجيل الدخول"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/etpassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- رابط التسجيل -->
+    <TextView
+        android:id="@+id/tvsignuptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don’t have an account? / ليس لديك حساب؟"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/btnlogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvsignuplink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="اشترك / Sign Up"
+        android:textColor="#FF6F00"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tvsignuptext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

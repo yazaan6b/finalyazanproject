@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:id="@+id/main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- عنوان الصفحة -->
+        <TextView
+            android:id="@+id/tvtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="60dp" />
+
+        <TextView
+            android:id="@+id/tvsign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="إنشاء حساب"
+            android:textColor="#DADADA"
+            android:textSize="16sp" />
+
+        <!-- الاسم -->
+        <TextView
+            android:id="@+id/tvn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"
+            android:text="Name ( الاسم )"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter your name"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#A0A0A0"
+            android:textColor="@android:color/white" />
+
+        <!-- البريد الإلكتروني -->
+        <TextView
+            android:id="@+id/tvem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:text="Email ( البريد الإلكتروني )"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etemail1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#A0A0A0"
+            android:textColor="@android:color/white" />
+
+        <!-- كلمة السر -->
+        <TextView
+            android:id="@+id/tvp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:text="Password ( كلمة السر )"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etpassword1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#A0A0A0"
+            android:textColor="@android:color/white" />
+
+        <!-- تأكيد كلمة السر -->
+        <TextView
+            android:id="@+id/tvpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:text="Confirm Password ( تأكيد كلمة السر )"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etconfirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Confirm your password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#A0A0A0"
+            android:textColor="@android:color/white" />
+
+        <!-- زر إنشاء الحساب -->
+        <Button
+            android:id="@+id/btca"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#E65C00"
+            android:text="Create Account ( إنشاء حساب )"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <!-- رابط تسجيل الدخول -->
+        <TextView
+            android:id="@+id/tvloginlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Sign in / لديك حساب؟ تسجيل الدخول"
+            android:textColor="#DADADA"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp" />
+
+        <!-- الحقوق -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="© 2025 Arabian Horses App. All rights reserved."
+            android:textColor="#808080"
+            android:textSize="12sp"
+            android:layout_marginTop="40dp" />
+
+    </LinearLayout>
+</ScrollView>
