@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finalyazanproject">
         <activity
+            android:name=".AddHorseActivity"
+            android:exported="false" />
+        <activity
             android:name=".Mainseting"
             android:exported="false" />
         <activity
@@ -21,7 +24,7 @@
             android:name=".Mainsearch"
             android:exported="false" />
         <activity
-            android:name=".Mainhorses"
+            android:name=".HorseList"
             android:exported="false" />
         <activity
             android:name=".Mainmenu"

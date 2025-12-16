@@ -25,14 +25,15 @@
             android:backgroundTint="#FFD45211" />
 
         <TextView
+            android:id="@+id/tvSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search | بحث"
-            android:textSize="20sp"
-            android:textColor="#221610"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:paddingEnd="40dp" />
+            android:paddingEnd="40dp"
+            android:text="Search | بحث"
+            android:textColor="#221610"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <!-- ======= Search Bar ======= -->
@@ -101,26 +102,29 @@
     </HorizontalScrollView>
 
     <!-- ======= Results Title ======= -->
-    <TextView
-        android:id="@+id/resultsTitle"
-        android:layout_below="@id/filterScroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:text="Results | النتائج"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#221610" />
 
     <!-- ======= Results List ======= -->
-    <androidx.recyclerview.widget.RecyclerView
+
+    <TextView
+        android:id="@+id/resultsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/filterScroll"
+        android:layout_marginTop="21dp"
+        android:paddingTop="8dp"
+        android:text="Results | النتائج"
+        android:textColor="#221610"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
         android:id="@+id/recyclerResults"
         android:layout_below="@id/resultsTitle"
         android:layout_above="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        tools:listitem="@layout/horseitem"
         android:layout_alignParentBottom="false" />
 
     <!-- ======= Bottom Navigation ======= -->
