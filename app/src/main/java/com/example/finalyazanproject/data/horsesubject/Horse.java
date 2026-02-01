@@ -1,10 +1,14 @@
 package com.example.finalyazanproject.data.horsesubject;
 
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Horse {
+public class Horse implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int horseId;
     // الصفات الأساسية

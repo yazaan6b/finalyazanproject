@@ -15,8 +15,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalyazanproject.data.MyUserTable.MyUser;
-import com.example.finalyazanproject.data.MyUserTable.MyUserQuery;
 import com.example.finalyazanproject.data.appdatabase.AppDB;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class signin extends AppCompatActivity {
 
@@ -52,12 +54,6 @@ public class signin extends AppCompatActivity {
             Intent intent1 = new Intent(signin.this, Signup.class);
             startActivity(intent1);
         });
-        btnlogin.setOnClickListener(v ->
-        {
-            Intent intent2 = new Intent(signin.this, Mainmenu.class);
-            startActivity(intent2);
-        });
-
     }
 
     private void validateAndLogin() {
@@ -70,31 +66,17 @@ public class signin extends AppCompatActivity {
             return;
         }
 
-        // ⭐ تشغيل استعلام Room بالخلفية بدون new Thread
-        AppDB.databaseWriteExecutor.execute(() -> {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(signin.this, "Login successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(signin.this, Mainmenu.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(signin.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-            MyUserQuery myUserQuery = AppDB.getInstance(this).myUserQuery();
-            MyUser user = myUserQuery.checkEmail(email);
-
-            runOnUiThread(() -> {
-
-                if (user == null) {
-                    Toast.makeText(this, "Email does not exist", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (!user.getPassword().equals(password)) {
-                    Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(signin.this, Mainmenu.class);
-                startActivity(intent);
-
-            });
-
-
-        });
     }
 }

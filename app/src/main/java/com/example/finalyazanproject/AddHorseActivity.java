@@ -77,6 +77,7 @@ public class AddHorseActivity extends AppCompatActivity {
         Toast.makeText(this, "Horse added successfully", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AddHorseActivity.this, Mainmenu.class);
         startActivity(intent);
+        
 
     }
 }

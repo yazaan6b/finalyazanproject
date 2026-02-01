@@ -1,5 +1,6 @@
 package com.example.finalyazanproject;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,8 +9,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Maindetail extends AppCompatActivity {
+import com.example.finalyazanproject.data.horsesubject.Horse;
 
+public class Maindetail extends AppCompatActivity
+{
+    private Horse horse;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +27,9 @@ public class Maindetail extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        horse = (Horse) getIntent().getSerializableExtra("horse_data");
+
+
 
     }
 }

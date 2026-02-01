@@ -16,6 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.finalyazanproject.data.MyUserTable.MyUser;
 import com.example.finalyazanproject.data.MyUserTable.MyUserQuery;
 import com.example.finalyazanproject.data.appdatabase.AppDB;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity {
     private TextView tvloginlink;
@@ -107,6 +109,11 @@ public class Signup extends AppCompatActivity {
             MyUserQuery myUserQuery = AppDB.getInstance(this).myUserQuery();
             myUserQuery.insert(myUser);
             Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
+        // Save data to Firebase
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = firebaseDatabase.getReference("users");
+        DatabaseReference newUserRef = usersRef.push();
+        newUserRef.setValue(myUser);
             finish();
         }
         else {

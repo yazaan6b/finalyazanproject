@@ -1,6 +1,7 @@
 package com.example.finalyazanproject.data.appdatabase;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -14,7 +15,7 @@ import com.example.finalyazanproject.data.MyUserTable.MyUserQuery;
 import com.example.finalyazanproject.data.horsesubject.Horse;
 import com.example.finalyazanproject.data.horsesubject.MyHorseQuery;
 
-@Database(entities = {MyUser.class, Horse.class}, version = 2)
+@Database(entities = {MyUser.class, Horse.class}, version = 3)
 public abstract class AppDB extends RoomDatabase {
 
     private static AppDB instance;
