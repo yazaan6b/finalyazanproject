@@ -9,7 +9,7 @@
 
     <!-- Header -->
     <LinearLayout
-        android:id="@+id/header"
+        android:id="@+id/headerLinearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
-            android:id="@+id/backButton"
+            android:id="@+id/backButtonImageButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -29,6 +29,7 @@
             android:contentDescription="Back"/>
 
         <TextView
+            android:id="@+id/headerTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,6 +40,7 @@
             android:gravity="center"/>
 
         <View
+            android:id="@+id/headerView"
             android:layout_width="40dp"
             android:layout_height="40dp"/>
     </LinearLayout>
@@ -49,18 +51,19 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintTop_toBottomOf="@id/headerLinearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/scrollableContentLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <!-- General Section -->
             <TextView
+                android:id="@+id/generalTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="General "
@@ -69,6 +72,7 @@
                 android:paddingBottom="8dp"/>
 
             <LinearLayout
+                android:id="@+id/generalLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -77,6 +81,7 @@
 
                 <!-- Language -->
                 <LinearLayout
+                    android:id="@+id/languageLinearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -85,12 +90,14 @@
                     android:background="?attr/selectableItemBackground">
 
                     <LinearLayout
+                        android:id="@+id/languageContentLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/languageTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Language / اللغة"
@@ -98,6 +105,7 @@
                             android:textStyle="bold"/>
 
                         <TextView
+                            android:id="@+id/languageSubTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="English / العربية"
@@ -109,6 +117,7 @@
 
                 <!-- Notifications -->
                 <LinearLayout
+                    android:id="@+id/notificationsLinearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -117,12 +126,14 @@
                     android:background="?attr/selectableItemBackground">
 
                     <LinearLayout
+                        android:id="@+id/notificationsContentLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/notificationsTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Notifications / الإشعارات"
@@ -130,6 +141,7 @@
                             android:textStyle="bold"/>
 
                         <TextView
+                            android:id="@+id/notificationsSubTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="On / تشغيل"
@@ -147,6 +159,7 @@
 
             <!-- Account Section -->
             <TextView
+                android:id="@+id/accountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Account / الحساب"
@@ -156,6 +169,7 @@
                 android:paddingBottom="8dp"/>
 
             <LinearLayout
+                android:id="@+id/accountLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -165,6 +179,7 @@
 
                 <!-- Account Info -->
                 <LinearLayout
+                    android:id="@+id/accountInfoLinearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -173,12 +188,14 @@
                     android:background="?attr/selectableItemBackground">
 
                     <LinearLayout
+                        android:id="@+id/accountInfoContentLinearLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/accountInfoTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Account Information / معلومات الحساب"
@@ -186,131 +203,16 @@
                             android:textStyle="bold"/>
 
                         <TextView
+                            android:id="@+id/accountInfoSubTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="View and edit your account information"
                             android:textSize="14sp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/cardview_dark_background"/>
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_launcher_background"
-                        />
-                </LinearLayout>
-
-                <!-- Logout -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Logout / تسجيل الخروج"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_launcher_background"
-                        />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-
-    <!-- Footer / Navigation -->
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_launcher_background"/>
-
-            <TextView
-                android:text="Home"
-                android:textSize="10sp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
-            <TextView
-                android:text="Search"
-                android:textSize="10sp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
-            <TextView
-                android:text="Horses"
-                android:textSize="10sp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
-            <TextView
-                android:text="Settings"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,12 +29,12 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/btnSettings"
+            android:id="@+id/btnss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_manage"
-            app:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
     </LinearLayout>
 
     <ListView

@@ -13,35 +13,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalyazanproject.data.appdatabase.AppDB;
 import com.example.finalyazanproject.data.horsesubject.Horse;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddHorseActivity extends AppCompatActivity {
 
     private EditText etHorseName;
+    private EditText etHorseBreed;
+    private EditText etHorseTemperament;
+    private EditText etHorseOwner;
+    private EditText etHorseLocation;
     private EditText etHorseAge;
     private EditText etHorsePrice;
     private EditText etHorseDescription;
     private ImageView ivHorseImage;
     private Button btnSaveHorse;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_horse);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
         etHorseName = findViewById(R.id.etHorseName);
         etHorseAge = findViewById(R.id.etHorseAge);
         etHorsePrice = findViewById(R.id.etHorsePrice);
         etHorseDescription = findViewById(R.id.etHorseLocation);
         ivHorseImage = findViewById(R.id.ivHorseImage);
         btnSaveHorse = findViewById(R.id.btnSaveHorse);
-        btnSaveHorse.setOnClickListener(v -> saveHorse());
+        btnSaveHorse.setOnClickListener(v -> {
+            saveHorse();
+        });
 
     }
+
     private boolean validateInputs() {
         boolean isValid = true;
         if (etHorseName.getText().toString().trim().isEmpty()) {
@@ -62,6 +70,7 @@ public class AddHorseActivity extends AppCompatActivity {
         }
         return isValid;
     }
+
     private void saveHorse() {
         if (!validateInputs()) {
             return;
@@ -77,7 +86,7 @@ public class AddHorseActivity extends AppCompatActivity {
         Toast.makeText(this, "Horse added successfully", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AddHorseActivity.this, Mainmenu.class);
         startActivity(intent);
-        
+
 
     }
 }

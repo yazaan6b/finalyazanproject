@@ -16,6 +16,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalyazanproject.data.MyUserTable.MyUser;
 import com.example.finalyazanproject.data.appdatabase.AppDB;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,6 +29,8 @@ public class signin extends AppCompatActivity {
     private EditText etpassword;
     private Button btnlogin;
     private TextView tvsignuplink;
+    private FirebaseAuth mAuth;
+    private AppDB appDB;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,6 +44,9 @@ public class signin extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        mAuth = FirebaseAuth.getInstance();
+        appDB = AppDB.getInstance(this);
 
         etemail = findViewById(R.id.etemail);
         etpassword = findViewById(R.id.etpassword);
@@ -66,11 +74,11 @@ public class signin extends AppCompatActivity {
             return;
         }
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(signin.this, "Login successful", Toast.LENGTH_SHORT).show();
+//
                         Intent intent = new Intent(signin.this, Mainmenu.class);
                         startActivity(intent);
                     } else {
