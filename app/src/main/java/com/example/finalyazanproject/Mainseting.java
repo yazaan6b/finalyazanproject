@@ -56,19 +56,13 @@ public class Mainseting extends AppCompatActivity {
 
         // Initialize General Section
         languageLinearLayout = findViewById(R.id.languageLinearLayout);
-        languageTextView = findViewById(R.id.languageTextView);
-        languageSubTextView = findViewById(R.id.languageSubTextView);
-
         notificationsLinearLayout = findViewById(R.id.notificationsLinearLayout);
         notificationsTextView = findViewById(R.id.notificationsTextView);
         notificationsSubTextView = findViewById(R.id.notificationsSubTextView);
         notificationSwitch = findViewById(R.id.notificationSwitch);
 
-        // Example: تغيير النص عند الضغط
-        languageLinearLayout.setOnClickListener(v -> {
-            // هنا ممكن تفتح اختيار اللغة
-            languageSubTextView.setText("العربية / English");
-        });
+
+
 
         notificationsLinearLayout.setOnClickListener(v -> {
             boolean isChecked = !notificationSwitch.isChecked();

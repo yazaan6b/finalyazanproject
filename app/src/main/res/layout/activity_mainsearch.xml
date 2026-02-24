@@ -117,16 +117,6 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/recyclerResults"
-        android:layout_below="@id/resultsTitle"
-        android:layout_above="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/horseitem"
-        android:layout_alignParentBottom="false" />
-
     <!-- ======= Bottom Navigation ======= -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

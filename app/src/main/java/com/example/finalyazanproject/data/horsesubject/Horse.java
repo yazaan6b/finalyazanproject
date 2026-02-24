@@ -108,5 +108,8 @@ public class Horse implements Serializable {
                 ", location='" + location + '\'' +
                 '}';
     }
+
+    public void setDescription(String horseDescription) {
+    }
 }
 

@@ -21,9 +21,6 @@
             android:name=".Maindetail"
             android:exported="false" />
         <activity
-            android:name=".Mainsearch"
-            android:exported="false" />
-        <activity
             android:name=".HorseList"
             android:exported="false" />
         <activity
