@@ -20,11 +20,19 @@ private TextView tvtextenglish;
 
     private Handler handler = new Handler();
 
+    // تعريف Runnable لتنفيذ أوامر معينة داخل Thread أو بعد مدة زمنية
     private Runnable runnable = new Runnable() {
+
         @Override
         public void run() {
+
+            // إنشاء Intent للانتقال من صفحة Splash إلى صفحة تسجيل الدخول
             Intent intent = new Intent(Mainsplash.this, signin.class);
+
+            // تشغيل صفحة تسجيل الدخول
             startActivity(intent);
+
+            // إغلاق صفحة الـ Splash الحالية حتى لا يعود المستخدم إليها عند الضغط على زر الرجوع
             finish();
         }
     };

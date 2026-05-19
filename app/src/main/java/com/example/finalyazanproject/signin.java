@@ -1,5 +1,11 @@
 package com.example.finalyazanproject;
 
+/**
+ * هذا الكود يتضمن تعريف وتعيين وتحديث وتعريب 
+ * وتعيين المتغيرات والتعليمات والدالات والكود 
+ * والتعديلات والتعليقات في الكود.
+ */
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +31,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class signin extends AppCompatActivity {
 
+    /**
+     * هذه المتغيرات تحتوي على المحتوى للواجهة الرسومية والتعليمات والمتغيرات والدالات 
+     * والكود والتعليمات والتعليقات في الكود.
+     */
+
     private EditText etemail;
     private EditText etpassword;
     private Button btnlogin;
@@ -32,6 +43,11 @@ public class signin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private AppDB appDB;
 
+    /**
+     * هذه الدالة تتم تشغيلها عند تشغيل الشاشة.
+     * تقوم بتعيين المحتوى والتمرير وعرض البيانات المطلوبة.
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,25 +80,29 @@ public class signin extends AppCompatActivity {
         });
     }
 
+    /**
+     * هذه الدالة تتم تشغيلها عند الضغط على زر التسجيل 
+     * تقوم بالتحقق من صحة البيانات وتقوم بتسجيل الدخول إلى البرنامج.
+     */
     private void validateAndLogin() {
 
         String email = etemail.getText().toString().trim();
         String password = etpassword.getText().toString().trim();
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "يرجى ملء جميع الحقول", Toast.LENGTH_SHORT).show();
             return;
         }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(signin.this, "Login successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(signin.this, "تم التسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
 //
                         Intent intent = new Intent(signin.this, Mainmenu.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(signin.this, "Login failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(signin.this, "فشل في عملية التسجيل الدخول", Toast.LENGTH_SHORT).show();
                     }
                 });
 

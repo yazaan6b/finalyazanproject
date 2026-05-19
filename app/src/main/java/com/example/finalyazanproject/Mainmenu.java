@@ -1,5 +1,11 @@
 package com.example.finalyazanproject;
 
+/**
+ * هذا الكود يتم تشغيله عند فتح الشاشة الرئيسية للتطبيق.
+ * يقوم بإضافة المحتوى والتمرير وعرض البيانات المطلوبة للحصانات.
+ * @author يازن النوري
+ */
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,14 +24,18 @@ import com.example.finalyazanproject.data.horsesubject.Horse;
 import com.example.finalyazanproject.data.horsesubject.MyHorseAdabter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class Mainmenu extends AppCompatActivity
-{
+public class Mainmenu extends AppCompatActivity {
     private MyHorseAdabter myHorseAdabter;
     private ListView listView;
     private FloatingActionButton btnAdd;
     private View btnss;
 
-
+    /**
+     * هذه الدالة تتم تشغيلها عند فتح الشاشة.
+     * تقوم بتعيين المحتوى والتمرير وعرض البيانات المطلوبة للحصانات.
+     *
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +69,23 @@ public class Mainmenu extends AppCompatActivity
 
     }
 
+    /**
+     * هذه الدالة تتم تشغيلها عند إعادة تنشيط الشاشة.
+     * تقوم بتحديث البيانات وإعادة عرضها للحصانات.
+     */
+// يتم استدعاء هذه الدالة عندما تعود الـ Activity إلى الواجهة (بعد الخروج منها أو الرجوع لها)
     @Override
     protected void onResume() {
         super.onResume();
+
+        // تفريغ جميع البيانات الموجودة داخل الـ Adapter أولاً
         myHorseAdabter.clear();
+
+        // جلب كل بيانات الخيول من قاعدة البيانات (Room Database)
+        // ثم إضافتها داخل الـ Adapter
         myHorseAdabter.addAll(AppDB.getInstance(this).myHorseQuery().getall());
+
+        // إعلام الـ Adapter أن البيانات تغيّرت حتى يتم تحديث الـ RecyclerView أو ListView
         myHorseAdabter.notifyDataSetChanged();
     }
 }

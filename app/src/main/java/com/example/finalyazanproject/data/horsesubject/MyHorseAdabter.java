@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.finalyazanproject.Maindetail;
 import com.example.finalyazanproject.R;
-import com.example.finalyazanproject.data.mytaskplace.Mytask;
 
 public class MyHorseAdabter extends ArrayAdapter<Horse> {
     private final int itemLayout;

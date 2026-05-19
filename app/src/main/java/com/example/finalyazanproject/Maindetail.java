@@ -12,10 +12,25 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalyazanproject.data.horsesubject.Horse;
 
+/**
+ * هذا الكود يعرض تفاصيل الحصان المحدد في الشاشة التفصيلية.
+ * يتم تحميل البيانات المطلوبة من قائمة الحصانات ويتم عرضها في الشاشة.
+ */
 public class Maindetail extends AppCompatActivity {
+    /**
+     * هذا الحصان الذي يتم عرضه في الشاشة.
+     */
     private Horse horse;
+    /**
+     * المربعات التي تحتوي على البيانات المطلوبة للحصان.
+     */
     private TextView tvName, tvAge, tvBreed, tvPrice, tvOwner, tvLocation, tvTrained, tvTemperament;
 
+    /**
+     * هذه الدالة تتم تشغيلها عند تشغيل الشاشة.
+     * تقوم بتعيين المحتوى والتمرير وعرض البيانات المطلوبة للحصان.
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

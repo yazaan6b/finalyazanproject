@@ -1,5 +1,7 @@
 package com.example.finalyazanproject;
 
+import static io.reactivex.internal.schedulers.SchedulerPoolFactory.start;
+
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -21,14 +23,48 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * هذه الفئة تعرّف شاشة التسجيل.
+ * يتم تعريف معاملات التسجيل والتحقق من الأخطاء والتحقق من المستخدم والتسجيل.
+ */
 public class Signup extends AppCompatActivity {
 
-    private EditText etemail, etname, etpassword, etconfirmpassword;
+    /**
+     * هذا الحقل يحتوي على عناصر الإدخال المستخدم لإدخال البريد الإلكتروني الخاص به.
+     */
+    private EditText etemail;
+    /**
+     * هذا الحقل يحتوي على عناصر الإدخال المستخدم لإدخال اسم المستخدم.
+     */
+    private EditText etname;
+    /**
+     * هذا الحقل يحتوي على عناصر الإدخال المستخدم لإدخال كلمة المرور.
+     */
+    private EditText etpassword;
+    /**
+     * هذا الحقل يحتوي على عناصر الإدخال المستخدم لتأكيد كلمة المرور.
+     */
+    private EditText etconfirmpassword;
+    /**
+     * هذا الزر يستخدم لإنشاء حساب مستخدم جديد.
+     */
     private Button btnCreateAccount;
+    /**
+     * هذا النص يستخدم لربط المستخدم بصفحة التسجيل.
+     */
     private TextView tvloginlink;
 
+    /**
+     * هذا الكائن يعرّف المستخدم في Firebase.
+     */
     private FirebaseAuth firebaseAuth;
 
+    /**
+     * هذه الدالة تتم تشغيلها عند فتح الشاشة.
+     * تتحقق من المعاملات التي تم تمريرها بشكل صحيح وتقوم بتسجيل المستخدم في Firebase.
+     * تقوم بتحديث قاعدة البيانات والقاعدة البيانات المحلية بالمعلومات المطلوبة.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +91,9 @@ public class Signup extends AppCompatActivity {
         tvloginlink.setOnClickListener(v -> finish());
     }
 
+    /**
+     * هذه الدالة تتم تشغيلها عند تحقق من الأخطاء وتتابع مع المستخدم في عملية التسجيل.
+     */
     private void validateAndRegister() {
 
         String email = etemail.getText().toString().trim();
@@ -63,22 +102,22 @@ public class Signup extends AppCompatActivity {
         String confirmPassword = etconfirmpassword.getText().toString().trim();
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            etemail.setError("Invalid email");
+            etemail.setError("البريد الإلكتروني غير صحيح");
             return;
         }
 
         if (name.isEmpty()) {
-            etname.setError("Enter your name");
+            etname.setError("الرجاء إدخال اسم المستخدم");
             return;
         }
 
         if (password.length() < 6) {
-            etpassword.setError("Password must be at least 6 characters");
+            etpassword.setError("يجب أن تكون كلمة المرور لا تقل عن 6 أحرف");
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            etconfirmpassword.setError("Passwords do not match");
+            etconfirmpassword.setError("كلمات المرور غير متطابقتان");
             return;
         }
 
@@ -92,10 +131,15 @@ public class Signup extends AppCompatActivity {
                         user.setUsername(name);
 
                         // 🔹 Room (Thread)
+                        // إنشاء Thread جديد لتنفيذ العملية في الخلفية بدون التأثير على واجهة المستخدم
                         new Thread(() -> {
+
+                            // إدخال المستخدم إلى قاعدة البيانات باستخدام Room Database
                             AppDB.getInstance(this).myUserQuery().insert(user);
 
-                        }).start();
+                        });
+
+                       start();
 
                         // 🔹 Firebase Realtime Database
                         FirebaseDatabase.getInstance()
@@ -103,7 +147,7 @@ public class Signup extends AppCompatActivity {
                                 .child(firebaseAuth.getUid())
                                 .setValue(user);
 
-                        Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "تم إنشاء الحساب بنجاح", Toast.LENGTH_SHORT).show();
                         finish();
 
                     } else {
