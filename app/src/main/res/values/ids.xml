@@ -2,4 +2,5 @@
 <resources>
     <item name="tvsettings" type="id" />
     <item name="layout4" type="id" />
+    <item name="tvloginlink" type="id" />
 </resources>
