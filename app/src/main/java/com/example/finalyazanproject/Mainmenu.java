@@ -8,6 +8,8 @@ package com.example.finalyazanproject;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -22,6 +26,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.finalyazanproject.data.appdatabase.AppDB;
 import com.example.finalyazanproject.data.horsesubject.Horse;
 import com.example.finalyazanproject.data.horsesubject.MyHorseAdabter;
+import com.example.finalyazanproject.data.notification.AlarmScheduler;
+import com.example.finalyazanproject.data.notification.NotificationHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mainmenu extends AppCompatActivity {
@@ -67,7 +73,26 @@ public class Mainmenu extends AppCompatActivity {
             }
         });
 
+        // طلب إذن الإشعارات (لنظام Android 13+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
+
+        // إعداد الإشعارات
+        NotificationHelper.createNotificationChannel(this);
+
+        // جدولة إشعار تجريبي بعد 10 ثوانٍ (اختياري)
+        AlarmScheduler.scheduleReminder(
+                this,
+                System.currentTimeMillis() + 10000,
+                "Horse  Reminder",
+                "أهلاً بك في تطبيق الخيول"
+        );
+
     }
+    
 
     /**
      * هذه الدالة تتم تشغيلها عند إعادة تنشيط الشاشة.
